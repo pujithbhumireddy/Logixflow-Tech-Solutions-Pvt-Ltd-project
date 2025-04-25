@@ -1,0 +1,345 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background-color: #f9fafb;
+    color: #2d3748;
+    overflow-x: hidden;
+    padding-top: 60px; /* Adjusted to match fixed navbar height */
+    line-height: 1.6;
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh; /* Changed to full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden; /* Prevent image overflow */
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero-background .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Solid dark overlay for better dimming */
+}
+
+.hero-background .bg-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center; /* Centered to fill the area */
+    background-repeat: no-repeat;
+    animation: subtleZoom 20s infinite ease-in-out;
+    filter: brightness(60%);
+}
+
+.hero-content {
+    max-width: 800px;
+    color: white;
+    padding: 20px;
+    z-index: 1; /* Ensure text stays above overlay */
+    position: relative; /* Ensure proper layering */
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.intro-section {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    gap: 40px;
+    flex-wrap: nowrap; /* Prevent wrapping on desktop */
+}
+
+.intro-content {
+    flex: 1;
+    order: 1; /* Ensure text comes first */
+}
+
+.intro-content h2 {
+    font-size: 2.2rem;
+    color: #2e7d32;
+    margin-bottom: 20px;
+}
+
+.intro-content p {
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.7;
+}
+
+.intro-image {
+    flex: 1;
+    order: 2; /* Ensure image comes second */
+}
+
+.intro-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.intro-image img:hover {
+    transform: scale(1.05);
+}
+
+.work-environment-section {
+    background: linear-gradient(to right, #f7fafc, #edf2f7);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.work-environment-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.work-environment-content h2 {
+    font-size: 2.2rem;
+    color: #2e7d32;
+    margin-bottom: 20px;
+}
+
+.work-environment-content p {
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.contact-info a {
+    color: #4CAF50;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #388e3c;
+}
+
+.job-listing-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.job-listing-section h2 {
+    font-size: 2.5rem;
+    color: #2e7d32;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.job-categories .category {
+    margin-bottom: 40px;
+}
+
+.category h3 {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin-bottom: 20px;
+}
+
+.job-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.job-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.job-header h4 {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin: 0;
+    flex: 1; /* Allow title to take available space */
+}
+
+.job-header p {
+    font-size: 1rem;
+    color: #718096;
+    margin: 0;
+    white-space: nowrap; /* Prevent location text from wrapping */
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #4CAF50;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.job-card.active .toggle-button {
+    transform: rotate(180deg);
+}
+
+.job-details {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #4a5568;
+    line-height: 1.7;
+    display: none;
+}
+
+.job-details.active {
+    display: block;
+}
+
+.job-details p {
+    margin-bottom: 15px;
+}
+
+.job-details ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.job-details ul li {
+    margin-bottom: 10px;
+}
+
+@keyframes subtleZoom {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.animate-on-scroll.in-view {
+    opacity: 1;
+}
+
+.fade-in.in-view {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.scale-in.in-view {
+    animation: scaleIn 0.8s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .intro-section {
+        flex-direction: column;
+        margin: 40px auto;
+    }
+
+    .intro-image {
+        display: none; /* Hide image on mobile as per original design */
+    }
+
+    .work-environment-section {
+        padding: 40px 20px;
+    }
+
+    .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .job-header h4 {
+        flex: none; /* Reset flex on mobile */
+    }
+
+    .job-header p {
+        margin-top: 5px; /* Add spacing between title and location on mobile */
+    }
+
+    .toggle-button {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .job-listing-section h2 {
+        font-size: 2rem;
+    }
+
+    .category h3 {
+        font-size: 1.5rem;
+    }
+
+    .job-header h4 {
+        font-size: 1.1rem;
+    }
+}
